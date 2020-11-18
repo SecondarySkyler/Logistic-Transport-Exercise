@@ -1,6 +1,6 @@
 package Manager;
 import Gestore.*;
-import client.Cliente;
+import Customer.Cliente;
 
 import java.util.ArrayList;
 import java.util.Arrays;

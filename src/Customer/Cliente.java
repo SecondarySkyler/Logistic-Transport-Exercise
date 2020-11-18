@@ -1,4 +1,4 @@
-package Cliente;
+package Customer;
 
 import Gestore.Città;
 import Gestore.Merce;
