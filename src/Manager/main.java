@@ -8,8 +8,7 @@ import java.util.Scanner;
 
 public class main {
 
-
-
+    //TODO: Organize main with more method to create instances
 
     public static void main(String[] args) {
 
@@ -32,10 +31,6 @@ public class main {
         requiredShipment.addViaggio(required);
         requiredShipment.showList();
         //requiredShipment.cercaPrenotazione(Udine);
-
-
-
-
 
 
 
@@ -74,6 +69,7 @@ public class main {
 
         /*System.out.println(equip.getSize());
         System.out.println(percorsi.getSize());*/
+
 
     }
 }
