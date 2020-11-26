@@ -1,10 +1,10 @@
 package Gestore;
 
-public class Città {
+public class City {
     public String nome;
 
 
-    public Città(String nome) {
+    public City(String nome) {
         this.nome = nome;
 
     }
