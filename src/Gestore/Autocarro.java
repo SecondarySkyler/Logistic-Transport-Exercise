@@ -1,9 +1,9 @@
 package Gestore;
 
-public class Autocarro  {
-    public String targa;
-    public int capacità;
-    public Merce.Tipo type;
+public class Autocarro {
+    private String targa;
+    private int capacità;
+    private Merce.Tipo type;
 
     /**
      * Constructor
@@ -13,20 +13,5 @@ public class Autocarro  {
         this.capacità = Truckcapacity;
         this.type = type;
     }
-
-
-    /**
-     * Method to store the quantity of Merce q on the truck
-     *
-     * @param q the instance of Merce
-     */
-    public void loadMerce(Merce q) {
-
-    }
-
-    public String getTarga() {
-        return this.targa;
-    }
-
-
 }
+

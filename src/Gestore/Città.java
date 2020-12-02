@@ -1,7 +1,7 @@
 package Gestore;
 
 public class Città {
-    public String nome;
+    private String nome;
 
 
     public Città(String nome) {

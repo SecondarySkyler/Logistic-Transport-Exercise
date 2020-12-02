@@ -1,7 +1,7 @@
 package Gestore;
 
 public class Merce {
-    public int Quantità;
+    private int quantità;
 
     public enum Tipo {
         Acciaio, Gas, Cibo
@@ -9,12 +9,12 @@ public class Merce {
     Tipo type;
 
     public Merce(int q, Merce.Tipo merce) {
-        Quantità = q;
+        quantità = q;
         type = merce;
     }
 
     public int retrieveQuantity() {
-        return Quantità;
+        return quantità;
     }
     public Tipo retrieveTipo() {
         return type;

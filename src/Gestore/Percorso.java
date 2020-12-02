@@ -4,7 +4,7 @@ import Gestore.Eccezioni.CityNotFoundException;
 import java.util.*;
 
 public class Percorso {
-    ArrayList<Città> percorso;
+    private ArrayList<Città> percorso;
     private Città partenza;
     private Città destinazione;
 

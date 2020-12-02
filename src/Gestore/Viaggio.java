@@ -4,9 +4,9 @@ package Gestore;
 public class Viaggio {
 
 
-    public Percorso percorso;
-    public Autocarro veicoloInUso;
-    public Merce merceTrasportata;
+    private Percorso percorso;
+    private Autocarro veicoloInUso;
+    private Merce merceTrasportata;
 
     public Viaggio(Percorso p) {
         this.percorso = p;
