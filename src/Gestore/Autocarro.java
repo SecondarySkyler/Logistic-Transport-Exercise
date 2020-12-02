@@ -1,16 +1,16 @@
 package Gestore;
 
-public class Autocarro extends Flotta {
-    public String Targa;
-    public int Capacità;
+public class Autocarro  {
+    public String targa;
+    public int capacità;
     public Merce.Tipo type;
 
     /**
      * Constructor
      */
     public Autocarro(String targa, int Truckcapacity, Merce.Tipo type) {
-        this.Targa = targa;
-        this.Capacità = Truckcapacity;
+        this.targa = targa;
+        this.capacità = Truckcapacity;
         this.type = type;
     }
 
@@ -23,4 +23,10 @@ public class Autocarro extends Flotta {
     public void loadMerce(Merce q) {
 
     }
+
+    public String getTarga() {
+        return this.targa;
+    }
+
+
 }

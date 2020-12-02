@@ -4,7 +4,7 @@ import Gestore.Eccezioni.CityNotFoundException;
 import java.util.*;
 
 public class Percorso {
-    ArrayList<Città> percorsi;
+    ArrayList<Città> percorso;
     private Città partenza;
     private Città destinazione;
 
@@ -17,9 +17,9 @@ public class Percorso {
     public Percorso(Città p, Città d) {
         partenza = p;
         destinazione = d;
-        this.percorsi = new ArrayList();
-        this.percorsi.add(this.partenza);
-        this.percorsi.add(this.destinazione);
+        this.percorso = new ArrayList();
+        this.percorso.add(this.partenza);
+        this.percorso.add(this.destinazione);
     }
 
     /**
@@ -29,35 +29,48 @@ public class Percorso {
      *  inserirle in ordine di distanza rispetto alla partenza
      */
     public void addTappa (Città c) {
-        this.percorsi.add(percorsi.size() - 1, c);
+        this.percorso.add(percorso.size() - 1, c);
     }
 
     public void changeTappa(Città c, Città r) throws CityNotFoundException {
-        if (percorsi.contains(r)) {
-            for (int i = 0; i < percorsi.size(); i++) {
-                if (percorsi.get(i) == r) {
-                    percorsi.remove(r);
-                    percorsi.add(i, c);
+        if (percorso.contains(r)) {
+            for (int i = 0; i < percorso.size(); i++) {
+                if (percorso.get(i) == r) {
+                    percorso.remove(r);
+                    percorso.add(i, c);
                 }
             }
         } else
             throw new CityNotFoundException();
     }
 
+    /**
+     * Mostra la lista dei percorsi disponibili
+     */
     public void showPercorsi() {
-        for (int i = 0; i < percorsi.size(); i++) {
-            String nomeCitta = percorsi.get(i).nome;
-            System.out.print(nomeCitta + ", ");
+        for (int i = 0; i < percorso.size(); i++) {
+            String nomeCitta = percorso.get(i).nome;
+            System.out.println(nomeCitta + ", ");
         }
     }
 
     public void search(Città c) {
-        Iterator it = percorsi.iterator();
+        Iterator it = percorso.iterator();
         while (it.hasNext()) {
             Object x = it.next();
             if (x instanceof Città)
                 System.out.println(c.nome);
         }
+    }
+
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        Iterator<Città> it = percorso.iterator();
+        while (it.hasNext()) {
+            String city = it.next().nome;
+            sb.append(city + ", ");
+        }
+        return sb.toString();
     }
 
 
