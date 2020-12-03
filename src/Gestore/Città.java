@@ -6,4 +6,8 @@ public class Città {
     public Città(String c) {
         this.nome = c;
     }
+
+    public String toString() {
+        return this.nome;
+    }
 }
