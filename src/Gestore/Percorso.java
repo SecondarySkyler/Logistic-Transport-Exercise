@@ -50,13 +50,13 @@ public class Percorso {
             throw new CityNotFoundException();
     }
 
-    /**
-     * Permette di visionare gli oggetti presenti in this su standard output
-     */
-    public void printPercorso() {
-        for (int i = 0; i < percorso.size(); i++) {
-            System.out.print(percorso.get(i).toString() + ", ");
+
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < this.percorso.size(); i++) {
+            sb = sb.append(percorso.get(i) + ", ");
         }
+        return sb.toString();
     }
 
 
