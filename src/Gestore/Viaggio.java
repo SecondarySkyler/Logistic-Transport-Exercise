@@ -1,53 +1,35 @@
 package Gestore;
 
-import Gestore.Autocarro;
-import Gestore.Merce;
-
-import java.util.ArrayList;
-
 
 public class Viaggio {
-    public Città Partenza;
-    public Città Destinazione;
-    public Autocarro veicoloInUso;
-    public Merce merceTrasportata;
 
-    public Viaggio(Città from, Città to) {
-        Partenza = from;
-        Destinazione = to;
-    }
 
-    public void addVehicle(Autocarro e) {
-        veicoloInUso = e;
-    }
-
-    public void addMerce(Merce e) {
-        merceTrasportata = e;
-    }
+    private Percorso percorso;
+    private Autocarro veicoloInUso;
+    private Merce merceTrasportata;
 
     /**
-     * Method that retrieve information about the Viaggio and it stores all the infos in an Arraylist
+     * Construttore per l'istanza di Viaggio
+     * @param p il percorso su cui si svolgera la spedizione
+     * @param a l'autocarro per la spedizione
+     * @param m la merce che verra trasportata
      */
-    public ArrayList retrieveInfo(){
-        ArrayList info = new ArrayList();
-        info.add(Partenza.nome);
-        info.add(Destinazione.nome);
-        info.add(veicoloInUso.Targa);
-        info.add(merceTrasportata.Quantità + "/" + veicoloInUso.Capacità);
-        info.add(merceTrasportata.type);
-        return info;
+    public Viaggio(Percorso p, Autocarro a, Merce m) {
+        this.percorso = p;
+        this.veicoloInUso = a;
+        this.merceTrasportata = m;
     }
 
-    public Città retrieveName() {
-        return Partenza;
+
+    public String info() {
+        // iteratore che tira fuori:
+        // i nomi delle citta nel percorso
+        // la targa dell'autocarro associato al Viaggio
+        // la merce, con quantita e tipo
+        StringBuffer sb = new StringBuffer();
+        sb.append("PERCORSO: " + this.percorso.toString()).append(System.lineSeparator());
+        sb.append("AUTOCARRO: " + this.veicoloInUso.toString()).append(System.lineSeparator());
+        sb.append("MERCE: " + this.merceTrasportata).append(System.lineSeparator());
+        return sb.toString();
     }
-
-    public String retrieveTarga() {
-        return veicoloInUso.Targa;
-    }
-
-    public int retrieveMerceQuantity() {return merceTrasportata.retrieveQuantity();}
-
-    public Merce.Tipo retrieveMerce() {return merceTrasportata.retrieveTipo();}
-
 }

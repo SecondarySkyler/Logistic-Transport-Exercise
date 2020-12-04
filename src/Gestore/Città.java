@@ -1,12 +1,15 @@
 package Gestore;
 
 public class Città {
-    public String nome;
+    private String nome;
 
-
-    public Città(String nome) {
-        this.nome = nome;
-
+    /** Costruttore */
+    public Città(String c) {
+        this.nome = c;
     }
 
+    /** Metodo per ricavare info sulla citta */
+    public String toString() {
+        return this.nome;
+    }
 }

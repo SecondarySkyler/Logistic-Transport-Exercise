@@ -1,24 +1,32 @@
 package Gestore;
 
 public class Merce {
-    public int Quantità;
+    private int quantità;
 
+    /**
+     * Enum class for Tipo di merce
+     */
     public enum Tipo {
         Acciaio, Gas, Cibo
     }
     Tipo type;
 
+    /**
+     * Constructor
+     * @param q quantita della merce
+     * @param merce tipo della merce
+     */
     public Merce(int q, Merce.Tipo merce) {
-        Quantità = q;
+        quantità = q;
         type = merce;
     }
 
-    public int retrieveQuantity() {
-        return Quantità;
+    public String toString() {
+        String info = this.type + ", " + this.quantità;
+        return info;
     }
-    public Tipo retrieveTipo() {
-        return type;
-    }
+
+
 
 
 }

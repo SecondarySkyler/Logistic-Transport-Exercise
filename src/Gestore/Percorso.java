@@ -1,76 +1,69 @@
 package Gestore;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.NoSuchElementException;
+import Gestore.Eccezioni.CityNotFoundException;
+import java.util.*;
 
 public class Percorso {
-    ArrayList<Viaggio> percorsi;
-
-    public Percorso() {
-        this.percorsi = new ArrayList<Viaggio>();
-    }
-
-    public void addViaggio (Viaggio v) {
-        this.percorsi.add(v);
-    }
-
-    public int getSize() {
-        return this.percorsi.size();
-    }
-
+    private ArrayList<Città> percorso;
+    private Città partenza;
+    private Città destinazione;
 
     /**
-     * Method to see every single Viaggio
+     * Costruttore per istanziare un Percorso
+     * @param p la citta di PARTENZA
+     * @param d la citta di ARRIVO
+     * E' importante l'ordine delle citta p e d devono rispettare le regole dei @param
      */
-    public void showList(){
-        int length = this.percorsi.size();
-        ArrayList info = new ArrayList();
-        for (int i = 0; i < length; i++) {
-            info = percorsi.get(i).retrieveInfo();
-            System.out.println(Arrays.toString(info.toArray()));
-        }
+    public Percorso(Città p, Città d) {
+        partenza = p;
+        destinazione = d;
+        this.percorso = new ArrayList();
+        this.percorso.add(this.partenza);
+        this.percorso.add(this.destinazione);
     }
 
     /**
-     * Method to search a Prenotazione, it returns the trip with the Città c associated
-     * @param c the Città used to retrieve inforamtion about
+     * Aggiunge una nuova tappa al percorso
+     * @param c la citta da aggiungere
+     *  N.B. la citta viene aggiunta tra la Partenza e la Destinazione, perciò è necessario
+     *  inserirle in ordine di distanza rispetto alla partenza
      */
-    public void cercaPrenotazione(Città c) {
-        int length = this.percorsi.size();
-        ArrayList result = new ArrayList();
-        for (int i = 0; i < length; i++) {
-            if (c == percorsi.get(i).retrieveName()) {
-                result.add(percorsi.get(i).retrieveInfo());
-            }
-        }
-        System.out.println(Arrays.toString(result.toArray()));
-
+    public void addTappa (Città c) {
+        this.percorso.add(percorso.size() - 1, c);
     }
 
-    public void cercaPrenotazione(String t) {
-        int length = this.percorsi.size();
-        ArrayList result = new ArrayList();
-        for (int i = 0; i < length; i++) {
-            if (t == percorsi.get(i).retrieveTarga()) {
-                result.add(percorsi.get(i).retrieveInfo());
+    /**
+     * Permette di cambiare una tappa all'interno di un'istanza di Percorso
+     * @param c la citta da inserire
+     * @param r la citta da sostituire
+     * @throws CityNotFoundException quando la citta da sostituire non e' presente in this
+     */
+    public void changeTappa(Città c, Città r) throws CityNotFoundException {
+        if (percorso.contains(r)) {
+            for (int i = 0; i < percorso.size(); i++) {
+                if (percorso.get(i) == r) {
+                    percorso.remove(r);
+                    percorso.add(i, c);
+                }
             }
-        }
-        System.out.println(Arrays.toString(result.toArray()));
-
+        } else
+            throw new CityNotFoundException();
     }
 
-    public void cercaPrenotazione(Merce.Tipo m) {
-        int length = this.percorsi.size();
-        ArrayList result = new ArrayList();
-        for (int i = 0; i < length; i++) {
-            if (m == percorsi.get(i).retrieveMerce()) {
-                result.add(percorsi.get(i).retrieveInfo());
-            }
+
+    public String toString() {
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < this.percorso.size(); i++) {
+            sb = sb.append(percorso.get(i) + ", ");
         }
-        System.out.println(Arrays.toString(result.toArray()));
+        return sb.toString();
     }
+
+
+
+
+
+
 
 
 }
