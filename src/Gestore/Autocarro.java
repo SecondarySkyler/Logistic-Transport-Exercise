@@ -8,10 +8,19 @@ public class Autocarro {
     /**
      * Constructor
      */
-    public Autocarro(String targa, int Truckcapacity, Merce.Tipo type) {
+    public Autocarro(String targa, int capacity, Merce.Tipo type) {
         this.targa = targa;
-        this.capacità = Truckcapacity;
+        this.capacità = capacity;
         this.type = type;
+    }
+
+    /**
+     * Metodo usato per ricavare le informazioni di this
+     * @return una stringa contenente targa, capacita e tipo di merce di this
+     */
+    public String toString() {
+        String info = this.targa + ", " + this.capacità + ", " + this.type;
+        return info;
     }
 }
 
