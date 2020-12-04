@@ -8,19 +8,18 @@ public class Viaggio {
     private Autocarro veicoloInUso;
     private Merce merceTrasportata;
 
-    public Viaggio(Percorso p) {
+    /**
+     * Construttore per l'istanza di Viaggio
+     * @param p il percorso su cui si svolgera la spedizione
+     * @param a l'autocarro per la spedizione
+     * @param m la merce che verra trasportata
+     */
+    public Viaggio(Percorso p, Autocarro a, Merce m) {
         this.percorso = p;
-
+        this.veicoloInUso = a;
+        this.merceTrasportata = m;
     }
 
-    public void addVehicle(Autocarro e) {
-        veicoloInUso = e;
-
-    }
-
-    public void addMerce(Merce e) {
-        merceTrasportata = e;
-    }
 
     public void info() {
         // iteratore che tira fuori:
