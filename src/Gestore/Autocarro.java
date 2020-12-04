@@ -19,7 +19,7 @@ public class Autocarro {
      * @return una stringa contenente targa, capacita e tipo di merce di this
      */
     public String toString() {
-        String info = this.targa + ", " + this.capacità + ", " + this.type;
+        String info = this.targa + ", " + this.capacità + ", " + this.type + ", ";
         return info;
     }
 }
