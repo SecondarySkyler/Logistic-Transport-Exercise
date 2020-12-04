@@ -21,10 +21,15 @@ public class Viaggio {
     }
 
 
-    public void info() {
+    public String info() {
         // iteratore che tira fuori:
         // i nomi delle citta nel percorso
         // la targa dell'autocarro associato al Viaggio
         // la merce, con quantita e tipo
+        StringBuffer sb = new StringBuffer();
+        sb.append("PERCORSO: " + this.percorso.toString()).append(System.lineSeparator());
+        sb.append("AUTOCARRO: " + this.veicoloInUso.toString()).append(System.lineSeparator());
+        sb.append("MERCE: " + this.merceTrasportata).append(System.lineSeparator());
+        return sb.toString();
     }
 }

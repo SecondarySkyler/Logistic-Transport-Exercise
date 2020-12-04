@@ -16,7 +16,7 @@ public class main {
 
         Percorso p = new Percorso(Udine, Milano);
         p.addTappa(Padova);
-        System.out.println(p.toString());
+//        System.out.println(p.toString());
 
         // ========== AUTOCARRO ===========
         String targa = "ABCDEF";
@@ -24,14 +24,19 @@ public class main {
         Merce.Tipo tipoDiMerce = Merce.Tipo.Acciaio;
 
         Autocarro camion = new Autocarro(targa, capacita, tipoDiMerce);
-        System.out.println(camion.toString());
+//        System.out.println(camion.toString());
 
         //========== MERCE ============
         int quantita = 100;
         Merce.Tipo tipo = Merce.Tipo.Acciaio;
 
         Merce merce = new Merce(quantita, tipo);
-        System.out.println(merce.toString());
+//        System.out.println(merce.toString());
+
+
+        //======== VIAGGIO ============
+        Viaggio viaggio = new Viaggio(p, camion, merce);
+        System.out.println(viaggio.info());
 
 
     }
