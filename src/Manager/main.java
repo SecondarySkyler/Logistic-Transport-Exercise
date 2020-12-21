@@ -6,7 +6,7 @@ import Gestore.Eccezioni.CityNotFoundException;
 public class main {
 
     //TODO: Organize main with more method to create instances
-    //TODO: Scrivi per Percorso/Autocarro/Merce il metodo toString per poter fare override in iteratore Viaggio
+
 
     public static void main(String[] args) throws CityNotFoundException {
         //========== PERCORSO ================
@@ -36,7 +36,12 @@ public class main {
 
         //======== VIAGGIO ============
         Viaggio viaggio = new Viaggio(p, camion, merce);
-        System.out.println(viaggio.info());
+        System.out.println(viaggio.toString());
+
+        //========= GESTORE VIAGGI =======
+        GestoreViaggi gv = new GestoreViaggi();
+        gv.addViaggio(viaggio);
+        System.out.println(gv.cercaPrenotazione(Udine).toString());
 
 
     }
