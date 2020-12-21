@@ -50,6 +50,14 @@ public class Percorso {
             throw new CityNotFoundException();
     }
 
+    /** return this.partenza */
+    public Città getPartenza() {
+        return partenza;
+    }
+    /** return this.destinazione */
+    public Città getDestinazione() {
+        return destinazione;
+    }
 
     public String toString() {
         StringBuffer sb = new StringBuffer();
@@ -58,12 +66,5 @@ public class Percorso {
         }
         return sb.toString();
     }
-
-
-
-
-
-
-
 
 }
