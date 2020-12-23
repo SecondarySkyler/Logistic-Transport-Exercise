@@ -38,10 +38,24 @@ public class main {
         Viaggio viaggio = new Viaggio(p, camion, merce);
         System.out.println(viaggio.toString());
 
+        /** viaggio with builder */
+        Viaggio v = ViaggioBuilder.newBuilder("Roma", "Catania")
+                .withVehicle("123", 1000, Merce.Tipo.Acciaio)
+                .willShip(100, Merce.Tipo.Acciaio)
+                .build()
+                ;
+        System.out.println(v.toString());
+        System.out.println("Fine parte Viaggio");
+
+
         //========= GESTORE VIAGGI =======
         GestoreViaggi gv = new GestoreViaggi();
         gv.addViaggio(viaggio);
+        gv.addViaggio(v);
         System.out.println(gv.cercaPrenotazione(Udine).toString());
+        System.out.println(gv.cercaPrenotazione("123").toString());
+
+
 
 
     }
