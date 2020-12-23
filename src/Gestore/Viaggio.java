@@ -25,6 +25,11 @@ public class Viaggio {
         return percorso;
     }
 
+    /** return this.veicoloInUso */
+    public Autocarro getAutocarro() {
+        return veicoloInUso;
+    }
+
     @Override
     public String toString() {
         return "Viaggio{" +
