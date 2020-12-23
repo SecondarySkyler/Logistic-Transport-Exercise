@@ -21,7 +21,6 @@ public class ViaggioBuilder {
 
     private ViaggioBuilder(String p, String d) {
         this.percorso = new Percorso(new Città(p), new Città(d));
-
     }
 
     /** Constructor */
