@@ -14,6 +14,10 @@ public class Autocarro {
         this.type = type;
     }
 
+    public String getTarga() {
+        return targa;
+    }
+
     /**
      * Metodo usato per ricavare le informazioni di this
      * @return una stringa contenente targa, capacita e tipo di merce di this
