@@ -40,4 +40,11 @@ public class GestoreViaggi {
     }
 
 
+    public List<Viaggio> cercaPrenotazione(String t) {
+        return prenotazioni.stream()
+                .filter(viaggio -> viaggio.getAutocarro().getTarga() == t)
+                .collect(Collectors.toList());
+    }
+
+
 }
