@@ -45,7 +45,7 @@ public class main {
 
         //======== VIAGGIO ============
         Viaggio viaggio = new Viaggio(gdp, gdc, p, camion, merce);
-        System.out.println(viaggio.toString());
+//        System.out.println(viaggio.toString());
 
         /** viaggio with builder */
         Viaggio v = ViaggioBuilder.newBuilder("Roma", "Catania")
@@ -55,7 +55,7 @@ public class main {
                 .willArrive(5)
                 .build()
                 ;
-        System.out.println(v.toString());
+//        System.out.println(v.toString());
         System.out.println("Fine parte Viaggio");
 
 
@@ -65,13 +65,10 @@ public class main {
         gv.addViaggio(v);
         System.out.println(gv.cercaPrenotazione(Udine).toString());
         System.out.println(gv.cercaPrenotazione("123").toString());
+        System.out.println(gv.cercaPrenotazionePerData("2021-01-03").toString());
         System.out.println("Fine parte GestoreViaggi");
 
-//        LocalDate giornoDiPrenotazione = LocalDate.now();
-//        System.out.println(giornoDiPrenotazione);
-//        int deliveryTime = 3;
-//        LocalDate giornoDiConsegna = giornoDiPrenotazione.plusDays(deliveryTime);
-//        System.out.println("Consegna il: " + giornoDiConsegna);
+
 
 
 
