@@ -1,5 +1,7 @@
 package Gestore;
 
+import java.time.LocalDate;
+
 public class ViaggioBuilder {
 
     //Citta
@@ -14,6 +16,8 @@ public class ViaggioBuilder {
     private Merce.Tipo tipo;
 
     //Oggetti necessari per la creazione di un'istanza di Viaggio
+    private LocalDate giornoDiPrenotazione;
+    private LocalDate giornoDiConsegna;
     private Percorso percorso;
     private Autocarro veicoloInUso;
     private Merce merceTrasportata;
@@ -38,8 +42,23 @@ public class ViaggioBuilder {
         return this;
     }
 
+    public ViaggioBuilder booked () {
+        this.giornoDiPrenotazione = LocalDate.now();
+        return this;
+    }
+
+    /**
+     * Set the delivery date
+     * @param dt stands for delivery time, it is the amount of day for the Merce to be shipped
+     * @return this
+     */
+    public ViaggioBuilder willArrive (int dt) {
+        this.giornoDiConsegna = this.giornoDiPrenotazione.plusDays(dt);
+        return this;
+    }
+
     public Viaggio build () {
-        return new Viaggio(percorso, veicoloInUso, merceTrasportata);
+        return new Viaggio(giornoDiPrenotazione, giornoDiConsegna, percorso, veicoloInUso, merceTrasportata);
     }
 
 }
