@@ -2,6 +2,10 @@ package Manager;
 import Gestore.*;
 import Gestore.Eccezioni.CityNotFoundException;
 
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.temporal.TemporalAmount;
+
 
 public class main {
 
@@ -9,6 +13,11 @@ public class main {
 
 
     public static void main(String[] args) throws CityNotFoundException {
+        //========= DATA ====================
+        LocalDate gdp = LocalDate.now();
+        int deliveryTime = 3; // giorni previsti di consegna
+        LocalDate gdc = gdp.plusDays(deliveryTime);
+
         //========== PERCORSO ================
         Città Udine = new Città("Udine");
         Città Milano = new Città("Milano");
@@ -35,13 +44,15 @@ public class main {
 
 
         //======== VIAGGIO ============
-        Viaggio viaggio = new Viaggio(p, camion, merce);
+        Viaggio viaggio = new Viaggio(gdp, gdc, p, camion, merce);
         System.out.println(viaggio.toString());
 
         /** viaggio with builder */
         Viaggio v = ViaggioBuilder.newBuilder("Roma", "Catania")
                 .withVehicle("123", 1000, Merce.Tipo.Acciaio)
                 .willShip(100, Merce.Tipo.Acciaio)
+                .booked()
+                .willArrive(5)
                 .build()
                 ;
         System.out.println(v.toString());
@@ -54,6 +65,15 @@ public class main {
         gv.addViaggio(v);
         System.out.println(gv.cercaPrenotazione(Udine).toString());
         System.out.println(gv.cercaPrenotazione("123").toString());
+        System.out.println("Fine parte GestoreViaggi");
+
+//        LocalDate giornoDiPrenotazione = LocalDate.now();
+//        System.out.println(giornoDiPrenotazione);
+//        int deliveryTime = 3;
+//        LocalDate giornoDiConsegna = giornoDiPrenotazione.plusDays(deliveryTime);
+//        System.out.println("Consegna il: " + giornoDiConsegna);
+
+
 
 
 
