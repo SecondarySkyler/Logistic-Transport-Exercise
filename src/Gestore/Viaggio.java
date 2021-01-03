@@ -1,9 +1,12 @@
 package Gestore;
 
 
+import java.time.LocalDate;
+
 public class Viaggio {
 
-
+    private LocalDate giornoDiPrenotazione;
+    private LocalDate giornoDiConsegna;
     private Percorso percorso;
     private Autocarro veicoloInUso;
     private Merce merceTrasportata;
@@ -14,7 +17,9 @@ public class Viaggio {
      * @param a l'autocarro per la spedizione
      * @param m la merce che verra trasportata
      */
-    public Viaggio(Percorso p, Autocarro a, Merce m) {
+    public Viaggio(LocalDate gdp, LocalDate gdc, Percorso p, Autocarro a, Merce m) {
+        this.giornoDiPrenotazione = gdp;
+        this.giornoDiConsegna = gdc;
         this.percorso = p;
         this.veicoloInUso = a;
         this.merceTrasportata = m;
@@ -33,9 +38,11 @@ public class Viaggio {
     @Override
     public String toString() {
         return "Viaggio{" +
-                "percorso=" + percorso +
-                ", veicoloInUso=" + veicoloInUso +
-                ", merceTrasportata=" + merceTrasportata +
+                "giornoDiPrenotazione = " + giornoDiPrenotazione + "\n" +
+                ", giornoDiConsegna = " + giornoDiConsegna + "\n" +
+                ", percorso = " + percorso + "\n" +
+                ", veicoloInUso = " + veicoloInUso + "\n" +
+                ", merceTrasportata = " + merceTrasportata +
                 '}';
     }
 }
