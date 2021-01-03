@@ -1,5 +1,6 @@
 package Gestore;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Vector;
 import java.util.stream.Collectors;
@@ -39,11 +40,28 @@ public class GestoreViaggi {
                 .collect(Collectors.toList());
     }
 
-
+    /**
+     *
+     * @param t targa di un Autocarro per la quale si vuole cercare una o piu' istanze di Viaggio
+     * @return una lista con tutte le istanze di Viaggio con Viaggio.getAutocarro.getTarga == t
+     */
     public List<Viaggio> cercaPrenotazione(String t) {
         return prenotazioni.stream()
                 .filter(viaggio -> viaggio.getAutocarro().getTarga() == t)
                 .collect(Collectors.toList());
+    }
+
+    /**
+     *
+     * @param d data di partenza
+     * @return una lista con tutte le istanze di Viaggio con Viaggio.getGiornoDiPrenotazione.equals(d)
+     */
+    public List<Viaggio> cercaPrenotazionePerData(String d) {
+        LocalDate date = LocalDate.parse(d);
+        return prenotazioni.stream()
+                .filter(viaggio -> viaggio.getGiornoDiPrenotazione().equals(date))
+                .collect(Collectors.toList());
+
     }
 
 
