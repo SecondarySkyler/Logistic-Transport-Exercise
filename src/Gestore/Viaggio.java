@@ -35,6 +35,11 @@ public class Viaggio {
         return veicoloInUso;
     }
 
+    /** return this.giornoDiPrenotazione */
+    public LocalDate getGiornoDiPrenotazione() {
+        return giornoDiPrenotazione;
+    }
+
     @Override
     public String toString() {
         return "Viaggio{" +
