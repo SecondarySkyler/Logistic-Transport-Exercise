@@ -21,6 +21,10 @@ public class Merce {
         type = merce;
     }
 
+    public int getQuantità() {
+        return quantità;
+    }
+
     public String toString() {
         String info = this.type + ", " + this.quantità;
         return info;
