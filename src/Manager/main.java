@@ -44,7 +44,7 @@ public class main {
 
 
         //======== VIAGGIO ============
-        Viaggio viaggio = new Viaggio(gdp, gdc, p, camion, merce);
+//        Viaggio viaggio = new Viaggio(gdp, gdc, p, camion, merce);
 //        System.out.println(viaggio.toString());
 
         /** viaggio with builder */
@@ -61,11 +61,11 @@ public class main {
 
         //========= GESTORE VIAGGI =======
         GestoreViaggi gv = new GestoreViaggi();
-        gv.addViaggio(viaggio);
+//        gv.addViaggio(viaggio);
         gv.addViaggio(v);
-        System.out.println(gv.cercaPrenotazione(Udine).toString());
-        System.out.println(gv.cercaPrenotazione("123").toString());
-        System.out.println(gv.cercaPrenotazionePerData("2021-01-03").toString());
+//        System.out.println(gv.cercaPrenotazione(Udine).toString());
+//        System.out.println(gv.cercaPrenotazione("123").toString());
+        System.out.println(gv.cercaPrenotazionePerData("2021-01-04").toString());
         System.out.println("Fine parte GestoreViaggi");
 
 
