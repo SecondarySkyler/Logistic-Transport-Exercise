@@ -16,6 +16,8 @@ public class Viaggio {
      * @param p il percorso su cui si svolgera la spedizione
      * @param a l'autocarro per la spedizione
      * @param m la merce che verra trasportata
+     * @throws IllegalStateException if type of Merce is different between Autocarro and Merce
+     * @throws IllegalStateException if the Autocarro hasn't enough capability
      */
     public Viaggio(LocalDate gdp, LocalDate gdc, Percorso p, Autocarro a, Merce m) {
         this.giornoDiPrenotazione = gdp;
@@ -23,6 +25,14 @@ public class Viaggio {
         this.percorso = p;
         this.veicoloInUso = a;
         this.merceTrasportata = m;
+
+        // check if Autocarro and Merce share the same Merce.Tipo
+        if (veicoloInUso.getType() != merceTrasportata.type)
+            throw new IllegalStateException();
+
+        // check if Autocarro has enough capability for the Merce to ship
+        if (veicoloInUso.getCapacità() < merceTrasportata.getQuantità())
+            throw new IllegalStateException();
     }
 
     /** return this.percorso */
