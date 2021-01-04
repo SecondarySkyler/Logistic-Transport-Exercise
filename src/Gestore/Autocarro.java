@@ -18,6 +18,14 @@ public class Autocarro {
         return targa;
     }
 
+    public Merce.Tipo getType() {
+        return type;
+    }
+
+    public int getCapacità() {
+        return capacità;
+    }
+
     /**
      * Metodo usato per ricavare le informazioni di this
      * @return una stringa contenente targa, capacita e tipo di merce di this
