@@ -32,16 +32,30 @@ public class ViaggioBuilder {
         return new ViaggioBuilder(p,d);
     }
 
+    /**
+     * Set a vehicle for the current Viaggio's instance
+     * @param t la targa dell'Autocarro
+     * @param c la capacita
+     * @param mt il tipo di merce che trasporta
+     * @return this
+     */
     public ViaggioBuilder withVehicle (String t, int c, Merce.Tipo mt) {
         this.veicoloInUso = new Autocarro(t, c, mt);
         return this;
     }
 
+    /**
+     * Permette di specificare la Merce che verra trasportata
+     * @param q la quantita
+     * @param m il tipo di merce
+     * @return this
+     */
     public ViaggioBuilder willShip (int q, Merce.Tipo m) {
         this.merceTrasportata = new Merce(q, m);
         return this;
     }
 
+    /** Set the current date as the book date (yyyy-MM-dd) */
     public ViaggioBuilder booked () {
         this.giornoDiPrenotazione = LocalDate.now();
         return this;
@@ -57,7 +71,16 @@ public class ViaggioBuilder {
         return this;
     }
 
+    /**
+     * @return an instance of Viaggio
+     *
+     */
     public Viaggio build () {
+        try {
+            Viaggio v = new Viaggio(giornoDiPrenotazione, giornoDiConsegna, percorso, veicoloInUso, merceTrasportata);
+        } catch (IllegalStateException ise) {
+            ise.printStackTrace();
+        }
         return new Viaggio(giornoDiPrenotazione, giornoDiConsegna, percorso, veicoloInUso, merceTrasportata);
     }
 
