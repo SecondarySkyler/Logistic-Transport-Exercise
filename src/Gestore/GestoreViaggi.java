@@ -34,9 +34,9 @@ public class GestoreViaggi {
      * @param p citta per la quale si vuole cercare una o piu' istanze di Viaggio
      * @return una lista con tutte le istanze di Viaggio con Viaggio.partenza == p
      */
-    public List<Viaggio> cercaPrenotazione(Città p) {
+    public List<Viaggio> cercaPrenotazionePerCitta(String c) {
         return prenotazioni.stream()
-                .filter(viaggio -> viaggio.getPercorso().getPartenza() == p )
+                .filter(viaggio -> viaggio.getPercorso().getPartenza().toString() == c )
                 .collect(Collectors.toList());
     }
 
@@ -45,7 +45,7 @@ public class GestoreViaggi {
      * @param t targa di un Autocarro per la quale si vuole cercare una o piu' istanze di Viaggio
      * @return una lista con tutte le istanze di Viaggio con Viaggio.getAutocarro.getTarga == t
      */
-    public List<Viaggio> cercaPrenotazione(String t) {
+    public List<Viaggio> cercaPrenotazionePerAutocarro(String t) {
         return prenotazioni.stream()
                 .filter(viaggio -> viaggio.getAutocarro().getTarga() == t)
                 .collect(Collectors.toList());
