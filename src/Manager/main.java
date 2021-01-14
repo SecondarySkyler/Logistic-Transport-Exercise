@@ -48,7 +48,7 @@ public class main {
 //        System.out.println(viaggio.toString());
 
         /** viaggio with builder */
-        Viaggio v = ViaggioBuilder.newBuilder("Roma", "Catania")
+        Viaggio v = ViaggioBuilder.newBuilder("Udine", "Catania")
                 .withVehicle("123", 1000, Merce.Tipo.Acciaio)
                 .willShip(100, Merce.Tipo.Acciaio)
                 .booked()
@@ -64,8 +64,9 @@ public class main {
 //        gv.addViaggio(viaggio);
         gv.addViaggio(v);
 //        System.out.println(gv.cercaPrenotazione(Udine).toString());
-//        System.out.println(gv.cercaPrenotazione("123").toString());
-        System.out.println(gv.cercaPrenotazionePerData("2021-01-04").toString());
+//        System.out.println(gv.cercaPrenotazionePerAutocarro("123").toString());
+//        System.out.println(gv.cercaPrenotazionePerData("2021-01-04").toString());
+        System.out.println(gv.cercaPrenotazionePerCitta("Udine"));
         System.out.println("Fine parte GestoreViaggi");
 
 
