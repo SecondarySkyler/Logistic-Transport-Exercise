@@ -1,5 +1,8 @@
 package Gestore;
 
+import Gestore.Eccezioni.InvalidCapabilityException;
+import Gestore.Eccezioni.WrongMerceTypeException;
+
 import java.time.LocalDate;
 
 public class ViaggioBuilder {
@@ -75,11 +78,13 @@ public class ViaggioBuilder {
      * @return an instance of Viaggio
      *
      */
-    public Viaggio build () {
+    public Viaggio build () throws WrongMerceTypeException, InvalidCapabilityException {
         try {
             Viaggio v = new Viaggio(giornoDiPrenotazione, giornoDiConsegna, percorso, veicoloInUso, merceTrasportata);
-        } catch (IllegalStateException ise) {
-            ise.printStackTrace();
+        } catch (WrongMerceTypeException wmte) {
+            wmte.printStackTrace();
+        } catch (InvalidCapabilityException ice) {
+            ice.printStackTrace();
         }
         return new Viaggio(giornoDiPrenotazione, giornoDiConsegna, percorso, veicoloInUso, merceTrasportata);
     }

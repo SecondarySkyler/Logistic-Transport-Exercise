@@ -1,6 +1,9 @@
 package Gestore;
 
 
+import Gestore.Eccezioni.InvalidCapabilityException;
+import Gestore.Eccezioni.WrongMerceTypeException;
+
 import java.time.LocalDate;
 
 public class Viaggio {
@@ -16,10 +19,10 @@ public class Viaggio {
      * @param p il percorso su cui si svolgera la spedizione
      * @param a l'autocarro per la spedizione
      * @param m la merce che verra trasportata
-     * @throws IllegalStateException if type of Merce is different between Autocarro and Merce
-     * @throws IllegalStateException if the Autocarro hasn't enough capability
+     * @throws WrongMerceTypeException if type of Merce is different between Autocarro and Merce
+     * @throws InvalidCapabilityException if the Autocarro hasn't enough capability
      */
-    public Viaggio(LocalDate gdp, LocalDate gdc, Percorso p, Autocarro a, Merce m) {
+    public Viaggio(LocalDate gdp, LocalDate gdc, Percorso p, Autocarro a, Merce m) throws WrongMerceTypeException, InvalidCapabilityException {
         this.giornoDiPrenotazione = gdp;
         this.giornoDiConsegna = gdc;
         this.percorso = p;
@@ -28,11 +31,11 @@ public class Viaggio {
 
         // check if Autocarro and Merce share the same Merce.Tipo
         if (veicoloInUso.getType() != merceTrasportata.type)
-            throw new IllegalStateException();
+            throw new WrongMerceTypeException();
 
         // check if Autocarro has enough capability for the Merce to ship
         if (veicoloInUso.getCapacità() < merceTrasportata.getQuantità())
-            throw new IllegalStateException();
+            throw new InvalidCapabilityException();
     }
 
     /** return this.percorso */
