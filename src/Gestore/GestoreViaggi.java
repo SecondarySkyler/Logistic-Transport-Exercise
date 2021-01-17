@@ -31,7 +31,7 @@ public class GestoreViaggi {
 
     /**
      *
-     * @param p citta per la quale si vuole cercare una o piu' istanze di Viaggio
+     * @param c citta per la quale si vuole cercare una o piu' istanze di Viaggio
      * @return una lista con tutte le istanze di Viaggio con Viaggio.partenza == p
      */
     public List<Viaggio> cercaPrenotazionePerCitta(String c) {
